@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=3 uid="uid://dkooh3oso8wf1"]
+
+[ext_resource type="Script" path="res://Scripts/Metronome.gd" id="1_22vbs"]
+[ext_resource type="AudioStream" uid="uid://dmgffsrngjkfv" path="res://Clicks/Synth_Tick_C_hi.wav" id="1_jsb3g"]
+[ext_resource type="AudioStream" uid="uid://gf3wtung07d3" path="res://Clicks/Synth_Tick_C_lo.wav" id="2_saq6j"]
+
+[node name="Metronome" type="Node"]
+script = ExtResource("1_22vbs")
+
+[node name="TempoTimer" type="Timer" parent="."]
+
+[node name="Click1" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("1_jsb3g")
+
+[node name="Click2" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_saq6j")
+
+[connection signal="timeout" from="TempoTimer" to="." method="_on_tempo_timer_1_timeout"]

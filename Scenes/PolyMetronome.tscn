@@ -1,0 +1,35 @@
+[gd_scene load_steps=3 format=3 uid="uid://bk0narljak2gl"]
+
+[ext_resource type="Script" path="res://Scripts/PolyMetronome.gd" id="1_ji4um"]
+[ext_resource type="PackedScene" uid="uid://dkooh3oso8wf1" path="res://Scenes/Metronome.tscn" id="2_lia5q"]
+
+[node name="PolyMetronome" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_ji4um")
+
+[node name="TempoSlider" type="VSlider" parent="."]
+layout_mode = 0
+offset_left = 1077.0
+offset_top = 109.0
+offset_right = 1093.0
+offset_bottom = 549.0
+min_value = 50.0
+max_value = 250.0
+step = 5.0
+value = 50.0
+
+[node name="TempoLabel" type="Label" parent="."]
+layout_mode = 0
+offset_left = 1102.0
+offset_top = 122.0
+offset_right = 1142.0
+offset_bottom = 145.0
+
+[node name="Metronome1" parent="." instance=ExtResource("2_lia5q")]
+
+[connection signal="value_changed" from="TempoSlider" to="." method="_on_v_slider_value_changed"]

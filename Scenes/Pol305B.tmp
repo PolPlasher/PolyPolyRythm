@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=3 uid="uid://bk0narljak2gl"]
+
+[ext_resource type="Script" path="res://Scripts/PolyMetronome.gd" id="1_ji4um"]
+[ext_resource type="AudioStream" uid="uid://dy33t4jujuh2f" path="res://Clicks/Click1.mp3" id="2_iyvhm"]
+[ext_resource type="Script" path="res://Scenes/TempoTimer.gd" id="2_m2gp0"]
+
+[node name="PolyMetronome" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_ji4um")
+
+[node name="TempoTimer" type="Timer" parent="."]
+script = ExtResource("2_m2gp0")
+
+[node name="Click" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_iyvhm")
+
+[connection signal="timeout" from="TempoTimer" to="." method="_on_tempo_timer_timeout"]
